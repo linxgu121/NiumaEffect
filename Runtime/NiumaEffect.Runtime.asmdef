@@ -1,0 +1,16 @@
+{
+  "name": "NiumaEffect.Runtime",
+  "references": [
+    "NiumaCore.Runtime",
+    "NiumaAttribute.Runtime",
+    "NiumaSave.Runtime"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": []
+}
