@@ -1,4 +1,5 @@
 using NiumaAttribute.Service;
+using NiumaCore.Event;
 using NiumaEffect.Config;
 
 namespace NiumaEffect.Service
@@ -14,5 +15,6 @@ namespace NiumaEffect.Service
         void SetAttributeCommand(IAttributeCommand attributeCommand);
         void SetApplicationResolver(IEffectApplicationResolver resolver);
         void SetImmunityResolver(IEffectImmunityResolver resolver);
+        void SetEventBus(IEventBus eventBus, EventChannel lifecycleEventChannel, bool publishLifecycleEvents);
     }
 }
