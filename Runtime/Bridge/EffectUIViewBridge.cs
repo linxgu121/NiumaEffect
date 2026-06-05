@@ -19,7 +19,7 @@ namespace NiumaEffect.Bridge
         [Tooltip("效果模块根控制器。请拖入场景中的 NiumaEffectController；为空时可按配置自动查找。")]
         [SerializeField] private NiumaEffectController effectController;
 
-        [Tooltip("实现 IEffectUIReceiver 的 UI 组件。桥接层会把整理后的效果表现数据交给它显示。")]
+        [Tooltip("效果栏 UI 脚本。拖团队制作的 Buff/Debuff 图标栏脚本；该脚本负责显示效果图标、层数和剩余时间。当前模块未内置正式面板，未制作 UI 时可留空。")]
         [SerializeField] private MonoBehaviour effectUIReceiverProvider;
 
         [Header("自动查找")]
@@ -433,7 +433,7 @@ namespace NiumaEffect.Bridge
             var receiver = effectUIReceiverProvider as IEffectUIReceiver;
             if (receiver == null && logWarnings && logMissing && effectUIReceiverProvider != null)
             {
-                Debug.LogWarning("[NiumaEffectUIBridge] Effect UI Receiver Provider 没有实现 IEffectUIReceiver。", this);
+                Debug.LogWarning("[NiumaEffectUIBridge] Effect UI Receiver 绑定的不是效果栏脚本，请拖团队制作的 Buff/Debuff 图标栏脚本。", this);
             }
 
             return receiver;

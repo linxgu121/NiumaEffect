@@ -35,13 +35,13 @@ namespace NiumaEffect.Controller
         [SerializeField] private bool resolveAttributeFromContext = true;
 
         [Header("外部裁决")]
-        [Tooltip("外部施加条件解析组件。该组件必须实现 IEffectApplicationResolver；可为空。")]
+        [Tooltip("效果施加规则脚本。需要技能、道具或剧情决定能否施加效果时，拖对应的 EffectApplicationResolver；第一版没有额外规则时可留空。")]
         [SerializeField] private MonoBehaviour applicationResolverBehaviour;
 
         [Tooltip("初始化时是否尝试从 GameContext 解析 IEffectApplicationResolver。使用统一模块启动器时建议开启。")]
         [SerializeField] private bool resolveApplicationResolverFromContext = true;
 
-        [Tooltip("免疫解析组件。该组件必须实现 IEffectImmunityResolver；可为空。")]
+        [Tooltip("效果免疫规则脚本。需要免疫、抗性或不可驱散规则时，拖对应的 EffectImmunityResolver；第一版没有免疫规则时可留空。")]
         [SerializeField] private MonoBehaviour immunityResolverBehaviour;
 
         [Tooltip("初始化时是否尝试从 GameContext 解析 IEffectImmunityResolver。使用统一模块启动器时建议开启。")]
@@ -615,7 +615,7 @@ namespace NiumaEffect.Controller
 
                 if (!_warnedInvalidApplicationResolver)
                 {
-                    Debug.LogWarning("[NiumaEffect] applicationResolverBehaviour 未实现 IEffectApplicationResolver。", this);
+                    Debug.LogWarning("[NiumaEffect] ApplicationResolver 绑定的不是效果施加规则脚本；没有额外施加规则时可留空。", this);
                     _warnedInvalidApplicationResolver = true;
                 }
             }
@@ -638,7 +638,7 @@ namespace NiumaEffect.Controller
 
                 if (!_warnedInvalidImmunityResolver)
                 {
-                    Debug.LogWarning("[NiumaEffect] immunityResolverBehaviour 未实现 IEffectImmunityResolver。", this);
+                    Debug.LogWarning("[NiumaEffect] ImmunityResolver 绑定的不是效果免疫规则脚本；没有免疫规则时可留空。", this);
                     _warnedInvalidImmunityResolver = true;
                 }
             }
